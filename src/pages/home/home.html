@@ -5,13 +5,15 @@
 </ion-header>
 
 <ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+  <h2>Take a photo or use the gallery</h2>
+
+  <button ion-button (click)="openPWAPhotoPicker()">Let's go!</button>
+
+  <div *ngIf="imgURI != null">
+    <img [src]="imgURI" #imageSrc style="width: 200px;">
+  </div>
+
+  <div id="pwa">
+    <input type="file" id="pwaphoto" #pwaphoto accept="image/x-png,image/jpeg" (change)="uploadPWA()">
+  </div>
 </ion-content>
